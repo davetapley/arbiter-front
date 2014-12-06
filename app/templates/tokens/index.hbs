@@ -1,0 +1,11 @@
+<ul>
+  {{#each}}
+    <li>
+      {{#link-to 'token' this}}
+        {{id}}
+      {{/link-to}}
+    </li>
+  {{else}}
+    <li>No tokens found.</li>
+  {{/each}}
+</ul>

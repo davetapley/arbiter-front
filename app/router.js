@@ -6,6 +6,9 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.resource('tokens', function() {
+    this.resource('token', { path: '/:token_id' });
+  });
 });
 
 export default Router;
