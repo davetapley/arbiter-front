@@ -1,0 +1,19 @@
+<table border=1>
+  {{#each translation in controller}}
+  <tr>
+    <td>
+      {{#with translation}}
+      {{partial translation.rulePartial}}
+      {{/with}}
+    </td>
+    <td>
+      {{translation.targetURL}}
+    </td>
+    <td>
+      {{translation.active}}
+    </td>
+  </tr>
+  {{/each}}
+</table>
+
+{{outlet}}
