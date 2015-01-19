@@ -2,8 +2,8 @@
   {{#each translation in controller}}
   <tr>
     <td>
-      {{#with translation}}
-      {{partial translation.rulePartial}}
+      {{#with translation.rule}}
+      {{partial partial}}
       {{/with}}
     </td>
     <td>

@@ -1,5 +1,5 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  translations: DS.attr()
+  translations: DS.hasManyFragments('translation'),
 });
