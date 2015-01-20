@@ -12,8 +12,11 @@
     <td>
       {{translation.active}}
     </td>
+    <td>
+      <button {{action 'up' translation.priority}}>{{fa-icon "arrow-up"}}</button>
+      <button {{action 'down' translation.priority}}>{{fa-icon "arrow-down"}}</button>
+    </td>
   </tr>
   {{/each}}
 </table>
-
 {{outlet}}
