@@ -2,7 +2,7 @@
   <td>
     {{#if hasRule}}
       {{#with model.rule}}
-      {{partial $type}}
+      {{partial type}}
       {{/with}}
     {{else}}
       <button {{action 'addRule' 'always'}}>always</button>
