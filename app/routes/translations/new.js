@@ -9,8 +9,16 @@ export default Ember.Route.extend({
 
   actions: {
     addRule: function(type) {
-      var translation = this.controller.get('model');
-      translation.set('rule', this.store.createFragment(type));
+      var newTranslation = this.controller.get('model');
+      newTranslation.set('rule', this.store.createFragment(type));
+    },
+    add: function() {
+      var newTranslation = this.controller.get('model');
+      var translations = this.controllerFor('translations').get('model');
+
+      newTranslation.set('priority', translations.get('length'));
+      translations.pushObject(newTranslation);
+      this.transitionTo('translations');
     }
   }
 });
