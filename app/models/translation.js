@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.ModelFragment.extend({
@@ -5,4 +6,6 @@ export default DS.ModelFragment.extend({
   target: DS.attr(),
   active: DS.attr('boolean'),
   rule: DS.hasOneFragment('rule', { polymorphic: true, typeKey: '$type' }),
+
+  hasRule: Ember.computed.bool('rule')
 });

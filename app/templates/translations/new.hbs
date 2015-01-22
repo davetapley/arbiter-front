@@ -1,0 +1,21 @@
+<tr>
+  <td>
+    {{#if hasRule}}
+      {{#with model.rule}}
+      {{partial $type}}
+      {{/with}}
+    {{else}}
+      <button {{action 'addRule' 'always'}}>always</button>
+      <button {{action 'addRule' 'period'}}>period</button>
+    {{/if}}
+  </td>
+  <td>
+    {{model.target}}
+  </td>
+  <td>
+    active
+  </td>
+  <td>
+    <button {{action 'add' translation.priority}}>{{fa-icon "arrow-up"}} add</button>
+  </td>
+</tr>

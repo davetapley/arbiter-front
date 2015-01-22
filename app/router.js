@@ -1,14 +1,16 @@
-import Ember from 'ember';
-import config from './config/environment';
+import Ember from "ember";
+import config from "./config/environment";
 
 var Router = Ember.Router.extend({
   location: config.locationType
 });
 
 Router.map(function() {
-  this.resource('tokens', function() {
-    this.resource('token', { path: '/:token_id' }, function() {
-      this.resource('translations');
+  this.resource("tokens", function() {
+    this.resource("token", { path: "/:token_id" }, function() {
+      this.resource("translations", function() {
+        this.route("new");
+      });
     });
   });
 });
