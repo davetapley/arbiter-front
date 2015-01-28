@@ -2,9 +2,15 @@
   {{#each translation in controller}}
   <tr>
     <td>
-      {{#with translation.rule}}
-      {{partial type}}
-      {{/with}}
+      {{#if translation.hasRule}}
+        <button {{action 'changeRule' translation}}>change rule...</button>
+        {{#with translation.rule}}
+        {{partial type}}
+        {{/with}}
+      {{else}}
+        <button {{action 'addRule' 'always'}}>always</button>
+        <button {{action 'addRule' 'period'}}>period</button>
+      {{/if}}
     </td>
     <td>
       {{input value=translation.targetURL}}
