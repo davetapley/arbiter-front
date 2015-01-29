@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.ObjectController.extend({
+  actionsPartial: 'existingTranslationActions',
+
   actions: {
     changeRule: function() {
       this.set('rule', null);

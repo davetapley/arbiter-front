@@ -8,5 +8,5 @@ export default DS.ModelFragment.extend({
   rule: DS.hasOneFragment('rule', { polymorphic: true, typeKey: '$type' }),
 
   hasRule: Ember.computed.bool('rule'),
-  targetURL: Ember.computed.alias('target')
+  targetURL: Ember.computed.alias('target'),
 });

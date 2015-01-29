@@ -1,35 +1,6 @@
 <table border=1>
-  {{#each translation in controller}}
-  <tr>
-    <td>
-      {{#if translation.hasRule}}
-      {{translation.rule.type}}
-      <button {{action 'changeRule' translation}}>change</button>
-      {{else}}
-      <button {{action 'addRule' 'always'}}>always</button>
-      <button {{action 'addRule' 'period'}}>period</button>
-      {{/if}}
-    </td>
-    <td>
-      {{#if translation.hasRule}}
-      {{#with translation.rule}}
-      {{partial type}}
-      {{/with}}
-      {{else}}
-      {{fa-icon "arrow-left"}}<i>choose a rule type!</i>
-      {{/if}}
-    </td>
-    <td>
-      {{input value=translation.targetURL}}
-    </td>
-    <td>
-      {{translation.active}}
-    </td>
-    <td>
-      <button {{action 'up' translation.priority}}>{{fa-icon "arrow-up"}}</button>
-      <button {{action 'down' translation.priority}}>{{fa-icon "arrow-down"}}</button>
-    </td>
-  </tr>
+  {{#each controller}}
+  {{partial 'translation'}}
   {{/each}}
 
   {{outlet}}
