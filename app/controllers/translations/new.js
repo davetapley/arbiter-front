@@ -3,6 +3,9 @@ import Ember from 'ember';
 export default Ember.ObjectController.extend({
   actionsPartial: 'newTranslationActions',
 
+  valid: Ember.computed.and('hasRule', 'rule.valid', 'target'),
+  addDisabled: Ember.computed.not('valid'),
+
   actions: {
     changeRule: function() {
       this.set('rule', null);
