@@ -1,12 +1,20 @@
 <tr>
   <td>
     {{#if hasRule}}
-      {{#with model.rule}}
-      {{partial type}}
-      {{/with}}
+    {{rule.type}}
+    <button {{action 'changeRule'}}>change</button>
     {{else}}
-      <button {{action 'addRule' 'always'}}>always</button>
-      <button {{action 'addRule' 'period'}}>period</button>
+    <button {{action 'addRule' 'always'}}>always</button>
+    <button {{action 'addRule' 'period'}}>period</button>
+    {{/if}}
+  </td>
+  <td>
+    {{#if hasRule}}
+    {{#with model.rule}}
+    {{partial type}}
+    {{/with}}
+    {{else}}
+    {{fa-icon "arrow-left"}}<i>choose a rule type!</i>
     {{/if}}
   </td>
   <td>

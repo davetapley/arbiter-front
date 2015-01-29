@@ -7,6 +7,10 @@ export default Ember.Route.extend({
   },
 
   actions: {
+    changeRule: function() {
+      var newTranslation = this.controller.get('model');
+      newTranslation.set('rule', null);
+    },
     addRule: function(type) {
       var newTranslation = this.controller.get('model');
       newTranslation.set('rule', this.store.createFragment(type));
