@@ -3,13 +3,20 @@
   <tr>
     <td>
       {{#if translation.hasRule}}
-        <button {{action 'changeRule' translation}}>change rule...</button>
-        {{#with translation.rule}}
-        {{partial type}}
-        {{/with}}
+      {{translation.rule.type}}
+      <button {{action 'changeRule' translation}}>change</button>
       {{else}}
-        <button {{action 'addRule' 'always'}}>always</button>
-        <button {{action 'addRule' 'period'}}>period</button>
+      <button {{action 'addRule' 'always'}}>always</button>
+      <button {{action 'addRule' 'period'}}>period</button>
+      {{/if}}
+    </td>
+    <td>
+      {{#if translation.hasRule}}
+      {{#with translation.rule}}
+      {{partial type}}
+      {{/with}}
+      {{else}}
+      {{fa-icon "arrow-left"}}<i>choose a rule type!</i>
       {{/if}}
     </td>
     <td>
@@ -25,7 +32,7 @@
   </tr>
   {{/each}}
 
-{{outlet}}
+  {{outlet}}
 
 </table>
 
