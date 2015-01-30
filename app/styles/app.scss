@@ -15,3 +15,9 @@ html, body {
   cursor: default;
   pointer-events: none;
 }
+
+.actions button[disabled="disabled"] {
+  color: grey;
+  cursor: default;
+  pointer-events: none;
+}
