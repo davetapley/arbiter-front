@@ -21,3 +21,10 @@ html, body {
   cursor: default;
   pointer-events: none;
 }
+
+.existing .separator {
+  height: 10px
+}
+.new .separator {
+  height: 20px
+}
