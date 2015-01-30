@@ -3,3 +3,15 @@
 html, body {
   margin: 20px;
 }
+
+.translation:first-child .up {
+  color: grey;
+  cursor: default;
+  pointer-events: none;
+}
+
+.translation:last-child .down {
+  color: grey;
+  cursor: default;
+  pointer-events: none;
+}
