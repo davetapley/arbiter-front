@@ -23,8 +23,16 @@ html, body {
 }
 
 .existing .separator {
-  height: 10px
+  height: 10px;
 }
 .new .separator {
-  height: 20px
+  height: 20px;
+}
+
+td.active {
+  background-color: #98FB98;
+}
+
+td.inactive {
+  background-color: #fb9898;
 }

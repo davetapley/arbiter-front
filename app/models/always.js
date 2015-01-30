@@ -7,4 +7,8 @@ export default Rule.extend({
   valid:(function() {
     return true;
   }).property(),
+
+  active:(function() {
+    return true;
+  }).property(),
 });

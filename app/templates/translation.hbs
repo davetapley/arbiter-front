@@ -20,10 +20,14 @@
   <td>
     {{input value=model.target placeholder='www.example.com'}}
   </td>
-  <td>
-    <i>n/a</i>
-  </td>
   <td class="actions">
     {{partial actionsPartial}}
+  </td>
+  <td {{bind-attr class="rule.active:active:inactive"}}>
+    {{#if rule.active}}
+    {{fa-icon "check"}}
+    {{else}}
+    {{fa-icon "times"}}
+    {{/if}}
   </td>
 </tr>

@@ -1,8 +1,10 @@
 <table border=1>
   <tbody class="existing">
   {{#each controller}}
+  {{#if isRest}}
   <tr class="separator">
   </tr>
+  {{/if}}
   {{partial 'translation'}}
   {{/each}}
   </tbody>
