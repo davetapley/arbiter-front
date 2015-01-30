@@ -3,8 +3,8 @@ import DS from 'ember-data';
 import Rule from './rule';
 
 export default Rule.extend({
-  first: DS.attr('date'),
-  last: DS.attr('date'),
+  first: DS.attr('isodate'),
+  last: DS.attr('isodate'),
 
   valid: Ember.computed.and('first', 'last'),
 
