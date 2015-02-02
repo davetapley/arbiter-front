@@ -6,13 +6,20 @@ export default Ember.ObjectController.extend({
   isFirst: Ember.computed.equal('priority', 0),
   isRest: Ember.computed.not('isFirst'),
 
-  actions: {
-    changeRule: function() {
-      this.set('rule', null);
-    },
+  ruleTypes: ['always', 'period'],
+  newRuleType: null,
 
-    addRule: function(type) {
-      this.set('rule', this.store.createFragment(type));
-    },
-  }
+  init: function () {
+    this._super();
+    this.set('newRuleType', this.get('rule.type'));
+  },
+
+  updateRule: function() {
+    var newType = this.get('newRuleType');
+    if(newType) {
+      this.set('rule', this.store.createFragment(newType));
+    } else {
+      this.set('rule', null);
+    }
+  }.observes('newRuleType')
 });

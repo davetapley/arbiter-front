@@ -1,12 +1,6 @@
 <tr class="translation">
   <td>
-    {{#if hasRule}}
-    {{rule.type}}
-    <button {{action 'changeRule'}}>change</button>
-    {{else}}
-    <button {{action 'addRule' 'always'}}>always</button>
-    <button {{action 'addRule' 'period'}}>period</button>
-    {{/if}}
+    {{view 'select' content=ruleTypes value=newRuleType prompt="Rule type.."}}
   </td>
   <td>
     {{#if hasRule}}
