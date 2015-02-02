@@ -4,7 +4,7 @@ export default Rule.extend({
   valid: true,
 
   active: (function() {
-    return true;
+    return navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/);
   }).property(),
 });
 
