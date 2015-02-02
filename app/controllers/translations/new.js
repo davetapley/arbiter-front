@@ -4,7 +4,7 @@ import Translation from '../translation';
 export default Translation.extend({
   actionsPartial: 'newTranslationActions',
 
-  valid: Ember.computed.and('hasRule', 'rule.valid', 'target'),
+  valid: Ember.computed.and('hasRule', 'rule.valid', 'targetURL'),
   addDisabled: Ember.computed.not('valid'),
 
   actions: {
