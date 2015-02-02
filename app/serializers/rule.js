@@ -1,5 +1,6 @@
 import DS from 'ember-data';
 import Always from '../models/always';
+import Counter from '../models/counter';
 import Mobile from '../models/mobile';
 import Period from '../models/period';
 
@@ -9,6 +10,8 @@ export default DS.RESTSerializer.extend({
 
     if (record instanceof Always) {
       json.$type = 'Always';
+    } else if (record instanceof Counter) {
+      json.$type = 'Counter';
     } else if (record instanceof Mobile) {
       json.$type = 'Mobile';
     } else if (record instanceof Period) {

@@ -6,7 +6,7 @@ export default Ember.ObjectController.extend({
   isFirst: Ember.computed.equal('priority', 0),
   isRest: Ember.computed.not('isFirst'),
 
-  ruleTypes: ['always', 'mobile', 'period'],
+  ruleTypes: ['always', 'counter', 'mobile', 'period'],
   newRuleType: null,
 
   init: function () {
