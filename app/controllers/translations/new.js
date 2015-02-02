@@ -1,20 +1,13 @@
 import Ember from 'ember';
+import Translation from '../translation';
 
-export default Ember.ObjectController.extend({
+export default Translation.extend({
   actionsPartial: 'newTranslationActions',
 
   valid: Ember.computed.and('hasRule', 'rule.valid', 'target'),
   addDisabled: Ember.computed.not('valid'),
 
   actions: {
-    changeRule: function() {
-      this.set('rule', null);
-    },
-
-    addRule: function(type) {
-      this.set('rule', this.store.createFragment(type));
-    },
-
     add: function() {
       var translations = this.controllerFor('translations').get('model');
 
