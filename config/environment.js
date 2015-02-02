@@ -43,5 +43,17 @@ module.exports = function(environment) {
 
   }
 
+  ENV['simple-auth-devise'] = {
+    resourceName: 'user',
+    serverTokenEndpoint: 'http://localhost:3020/users/sign_in'
+
+  };
+
+  ENV['simple-auth'] = {
+    //TODO: probably unsafe:
+    crossOriginWhitelist: ['*'],
+    authorizer: 'simple-auth-authorizer:devise',
+  };
+
   return ENV;
 };
