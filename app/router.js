@@ -8,6 +8,7 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route("login");
   this.resource("tokens", function() {
+    this.route("new");
     this.resource("token", { path: "/:token_id" }, function() {
       this.resource("translations", function() {
         this.route("new");
