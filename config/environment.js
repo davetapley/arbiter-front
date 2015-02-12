@@ -45,7 +45,7 @@ module.exports = function(environment) {
 
   ENV['simple-auth-devise'] = {
     resourceName: 'user',
-    serverTokenEndpoint: 'http://localhost:3020/users/sign_in'
+    serverTokenEndpoint: '/__/proxy/api/users/sign_in'
 
   };
 

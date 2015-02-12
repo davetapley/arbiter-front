@@ -1,0 +1,20 @@
+{
+  "name": "arbiter-front",
+  "root": "./dist",
+  "routes": {
+    "/tests": "tests/index.html",
+    "/tests/**": "tests/index.html",
+    "/**": "index.html"
+  },
+
+  "proxy": {
+    "api": {
+      "origin":"http://arbiter-back-staging.herokuapp.com/",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "cookies": false,
+      "timeout": 30
+    }
+  }
+}

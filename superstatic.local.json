@@ -1,0 +1,20 @@
+{
+  "name": "arbiter-front",
+  "root": "./dist",
+  "routes": {
+    "/tests": "tests/index.html",
+    "/tests/**": "tests/index.html",
+    "/**": "index.html"
+  },
+
+  "proxy": {
+    "api": {
+      "origin":"http://0.0.0.0:3200/",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "cookies": false,
+      "timeout": 30
+    }
+  }
+}
