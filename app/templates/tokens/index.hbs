@@ -2,8 +2,9 @@
   {{#each}}
     <li>
       {{#link-to 'token' this}}
-        {{id}}
+         {{id}}
       {{/link-to}}
+      <small>currently goes to</small> <a {{bind-attr href=href}}>{{activeTarget}}</a>
     </li>
   {{else}}
     <li>No tokens found.</li>
