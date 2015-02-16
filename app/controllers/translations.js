@@ -22,6 +22,6 @@ export default Ember.ArrayController.extend({
         swapped[1].set('priority', priority + 1);
         translations.replaceContent(priority, 2, swapped);
       }
-    },
+    }
   }
 });

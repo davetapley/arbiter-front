@@ -6,10 +6,4 @@ export default Ember.ObjectController.extend({
   }.property('id'),
 
   activeTarget: Ember.computed.alias('activeTranslation.target'),
-
-  actions: {
-    save: function() {
-      this.get('model').save();
-    }
-  }
 });
