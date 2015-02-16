@@ -1,6 +1,4 @@
-{{input
-  type="text"
-  id="new-token"
-  placeholder="Your token here"
-  value=newTokenId
-  action="createToken"}}
+{{#em-form form_layout="horizontal" model=model}}
+    {{em-input label="Domain" property="domain"}}
+    {{em-input label="Path" property="path"}}
+{{/em-form}}

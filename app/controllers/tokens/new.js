@@ -1,14 +1,9 @@
 import Ember from 'ember';
 
-export default Ember.ArrayController.extend({
+export default Ember.Controller.extend({
   actions: {
-    createToken: function() {
-      var newId = this.get('newTokenId');
-
-      var token = this.store.createRecord('token', {
-        id: newId
-      });
-
+    submit: function() {
+      var token = this.get('model');
       this.transitionTo('translations.new', token);
     }
   }
