@@ -1,5 +1,5 @@
 import DS from 'ember-data';
 
 export default DS.ActiveModelAdapter.extend({
-  host: '/__/proxy/api/'
+  host: '/__/proxy/api'
 });
