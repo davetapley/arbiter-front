@@ -19,7 +19,8 @@
     "ember-simple-auth": "0.7.2",
     "bootstrap": "~3.3.2",
     "ember-addons.bs_for_ember": "~0.7.0",
-    "ember-cli-moment-shim": "~0.0.3"
+    "ember-cli-moment-shim": "~0.0.3",
+    "eonasdan-bootstrap-datetimepicker": "~4.0.0"
   },
   "devDependencies": {
     "ember-cli-moment-shim": "~0.0.3"

@@ -22,7 +22,6 @@
     "broccoli-asset-rev": "^2.0.0",
     "broccoli-ember-hbs-template-compiler": "^1.6.1",
     "ember-cli": "0.1.5",
-    "ember-cli-bootstrap": "0.0.15",
     "ember-cli-content-security-policy": "0.3.0",
     "ember-cli-dependency-checker": "0.0.7",
     "ember-cli-divshot": "~0.1.7",
@@ -40,6 +39,7 @@
     "ember-moment": "^1.0.0",
     "ember-pikaday": "~0.3.0",
     "express": "^4.8.5",
-    "glob": "^4.0.5"
+    "glob": "^4.0.5",
+    "ember-bootstrap-datetimepicker": "~0.2.8"
   }
 }
