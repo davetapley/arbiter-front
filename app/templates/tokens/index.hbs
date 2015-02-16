@@ -2,7 +2,7 @@
   {{#each}}
     <li>
       {{#link-to 'token' this}}
-         {{id}}
+      {{domain}}/{{path}}
       {{/link-to}}
       <small>currently goes to</small> <a {{bind-attr href=href}}>{{activeTarget}}</a>
     </li>
