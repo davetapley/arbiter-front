@@ -44,6 +44,9 @@
     {{#if isTaken}}
       Token is already taken
     {{/if}}
+    {{#if isTakenByUser}}
+      You already own {{#link-to 'token' model}}this token{{/link-to}}
+    {{/if}}
   {{/if}}
 
 {{/em-form}}

@@ -18,24 +18,25 @@ export default Ember.Controller.extend({
     return this.get('userDomainOptions').length > 0;
   }.property('userDomainOptions'),
 
-  isAvailable: undefined,
-  isTaken: Ember.computed.equal('isAvailable', false),
-  checkingAvailability: Ember.computed.equal('isAvailable', undefined),
-
+  availability: undefined,
+  checkingAvailability: Ember.computed.equal('availability', undefined),
   canCheckAvailability: Ember.computed.and('model.hasDomain', 'model.hasPath'),
 
-  updateAvailable: function() {
+  isAvailable: Ember.computed.equal('availability', true),
+  isTaken: Ember.computed.equal('availability', false),
+  isTakenByUser: Ember.computed.equal('availability', 'user_owns'),
+
+  updateAvailablity: function() {
     if(this.get('canCheckAvailability')) {
       var that = this;
       var availableUrl = '__/proxy/api/tokens/' + this.get('model.id') + '/available';
       $.get(availableUrl, function(data) {
-        that.set('isAvailable', data.available);
+        var availability = data.available || (data.user_owns ? 'user_owns' : false);
+        that.set('availability', availability);
       });
+    } else {
+      this.set('availability', undefined);
     }
-  }.observes('canCheckAvailability'),
-
-  resetAvailable: function() {
-    this.set('isAvailable', undefined);
   }.observes('canCheckAvailability'),
 
   actions: {
