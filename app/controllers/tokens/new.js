@@ -23,6 +23,8 @@ export default Ember.Controller.extend({
   canCheckAvailability: Ember.computed.and('model.hasDomain', 'model.hasPath'),
 
   isAvailable: Ember.computed.equal('availability', true),
+  isntAvailable: Ember.computed.not('isAvailable'),
+
   isTaken: Ember.computed.equal('availability', false),
   isTakenByUser: Ember.computed.equal('availability', 'user_owns'),
 
@@ -30,7 +32,7 @@ export default Ember.Controller.extend({
     if(this.get('canCheckAvailability')) {
       var that = this;
       var availableUrl = '__/proxy/api/tokens/' + this.get('model.id') + '/available';
-      $.get(availableUrl, function(data) {
+      jQuery.get(availableUrl, function(data) {
         var availability = data.available || (data.user_owns ? 'user_owns' : false);
         that.set('availability', availability);
       });

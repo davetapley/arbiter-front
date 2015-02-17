@@ -7,7 +7,7 @@
   </label>
 </div>
 
-{{#em-form form_layout="horizontal" model=model}}
+{{#em-form form_layout="horizontal" model=model submit_button=false}}
   {{#if isDefaultDomain}}
   <i>use one of our domains</i>
     {{em-select
@@ -47,6 +47,11 @@
     {{#if isTakenByUser}}
       You already own {{#link-to 'token' model}}this token{{/link-to}}
     {{/if}}
+  {{else}}
+    Choose a domain and path
   {{/if}}
 
+  <div class="form-actions">
+    <input {{bind-attr disabled=isntAvailable}} type="submit" class="btn btn-primary">
+  </div>
 {{/em-form}}
