@@ -1,4 +1,36 @@
+<div class="btn-group">
+  <label {{bind-attr class="defaultDomain:active :btn btn-default"}}>
+    {{radio-button value='default' checked=domainType}} default
+  </label>
+  <label {{bind-attr class="userDomain:active :btn btn-default"}}>
+    {{radio-button value='user' checked=domainType}} user
+  </label>
+</div>
+
 {{#em-form form_layout="horizontal" model=model}}
-    {{em-input label="Domain" property="domain"}}
+  {{#if isDefaultDomain}}
+  <i>use one of our domains</i>
+    {{em-select
+      label="Domain"
+      property="domain"
+      content=defaultDomainOptions
+      optionValuePath="content.id"
+      optionLabelPath="content.id"
+      prompt="--select--"}}
+  {{/if}}
+  {{#if isUserDomain}}
+    <i>use your own domain</i>
+    {{em-input label="Enter domain" property="domain"}}
+    {{#if userDomain}}
+      {{em-select
+        label="or use a previous domain"
+        property="domain"
+        content=userDomainOptions
+        optionValuePath="content.id"
+        optionLabelPath="content.id"
+        prompt="--select--"}}
+      {{/if}}
+  {{/if}}
+
     {{em-input label="Path" property="path"}}
 {{/em-form}}
