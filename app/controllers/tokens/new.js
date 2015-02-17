@@ -15,8 +15,30 @@ export default Ember.Controller.extend({
   userDomainOptions: Ember.computed.filterBy('domainOptions', 'type', 'user'),
 
   userHasDomains: function() {
-    return userDomainOptions.length() > 0;
+    return this.get('userDomainOptions').length > 0;
   }.property('userDomainOptions'),
+
+  isAvailable: undefined,
+  isTaken: Ember.computed.not('isAvailable'),
+
+  canCheckAvailability: Ember.computed.and('model.hasDomain', 'model.hasPath'),
+
+  updateAvailable: function() {
+    if(this.get('canCheckAvailability')) {
+      var that = this;
+      $.ajax({
+          type: 'GET',
+          url: '__/proxy/api/' + this.get('model.path') + '?host=' + this.get('model.domain')
+      }).complete(function(jqXHR) {
+        var status = jqXHR.status;
+        that.set('isAvailable', status === 404);
+      });
+    }
+  }.observes('canCheckAvailability'),
+
+  resetAvailable: function() {
+    this.set('isAvailable', undefined);
+  }.property('model.domain', 'model.path'),
 
   actions: {
     submit: function() {

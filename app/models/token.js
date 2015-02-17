@@ -14,6 +14,8 @@ export default DS.Model.extend({
     }
   }.property('id'),
 
+  hasDomain: Ember.computed.notEmpty('domain'),
+
   path: function(_key, newPath) {
     var id = this.get('id') || ',';
     var pathIdx = id.lastIndexOf(",");
@@ -26,6 +28,8 @@ export default DS.Model.extend({
       return id.substring(pathIdx + 1);
     }
   }.property('id'),
+
+  hasPath: Ember.computed.notEmpty('path'),
 
   translations: DS.hasManyFragments('translation', {defaultValue: []}),
 

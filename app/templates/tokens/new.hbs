@@ -21,7 +21,7 @@
   {{#if isUserDomain}}
     <i>use your own domain</i>
     {{em-input label="Enter domain" property="domain"}}
-    {{#if userDomain}}
+    {{#if userHasDomains}}
       {{em-select
         label="or use a previous domain"
         property="domain"
@@ -32,5 +32,16 @@
       {{/if}}
   {{/if}}
 
-    {{em-input label="Path" property="path"}}
+  {{em-input label="Path" property="path"}}
+
+  {{#if canCheckAvailability}}
+    Token is
+    {{#if isAvailable}}
+      available
+    {{/if}}
+    {{#if isTaken}}
+      already taken
+    {{/if}}
+  {{/if}}
+
 {{/em-form}}
