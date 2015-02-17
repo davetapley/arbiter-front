@@ -35,12 +35,14 @@
   {{em-input label="Path" property="path"}}
 
   {{#if canCheckAvailability}}
-    Token is
+    {{#if checkingAvailability}}
+      Checking...
+    {{/if}}
     {{#if isAvailable}}
-      available
+      Token is available
     {{/if}}
     {{#if isTaken}}
-      already taken
+      Token is already taken
     {{/if}}
   {{/if}}
 
