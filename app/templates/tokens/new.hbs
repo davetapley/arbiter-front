@@ -1,57 +1,70 @@
+<h2>Create token</h2>
+
 <div class="btn-group">
-  <label {{bind-attr class="defaultDomain:active :btn btn-default"}}>
-    {{radio-button value='default' checked=domainType}} default
+  <h3>What type of domain?</h3>
+  <label class="btn btn-default">
+    {{radio-button value='default' checked=domainType}} Use one of our domains
   </label>
-  <label {{bind-attr class="userDomain:active :btn btn-default"}}>
-    {{radio-button value='user' checked=domainType}} user
+  <label class="btn btn-default">
+    {{radio-button value='new' checked=domainType}} Set up a new domain
+  </label>
+  <label class="btn btn-default">
+    {{radio-button value='user' checked=domainType}} Use an existing domain
   </label>
 </div>
 
-{{#em-form form_layout="horizontal" model=model submit_button=false}}
+{{#em-form model=model submit_button=false}}
+<h3>Settings</h3>
+<div class="form-group">
+
   {{#if isDefaultDomain}}
-  <i>use one of our domains</i>
-    {{em-select
-      label="Domain"
-      property="domain"
-      content=defaultDomainOptions
-      optionValuePath="content.id"
-      optionLabelPath="content.id"
-      prompt="--select--"}}
+  {{em-select label="Select domain" property="domain" prompt="--select--"
+  content=defaultDomainOptions optionValuePath="content.id" optionLabelPath="content.id"}}
   {{/if}}
+
+  {{#if isNewDomain}}
+  <p>Domain set up information here</p>
+  {{em-input label="Enter domain" property="domain"}}
+  {{/if}}
+
   {{#if isUserDomain}}
-    <i>use your own domain</i>
-    {{em-input label="Enter domain" property="domain"}}
-    {{#if userHasDomains}}
-      {{em-select
-        label="or use a previous domain"
-        property="domain"
-        content=userDomainOptions
-        optionValuePath="content.id"
-        optionLabelPath="content.id"
-        prompt="--select--"}}
-      {{/if}}
+  {{em-select label="Select domain" property="domain" prompt="--select--"
+  content=userDomainOptions optionValuePath="content.id" optionLabelPath="content.id"}}
   {{/if}}
 
+</div>
+<div class="form-group">
   {{em-input label="Path" property="path"}}
+</div>
 
-  {{#if canCheckAvailability}}
+<h3>Next step</h3>
+<div class="form-actions">
+  <div class="col-md-6">
+    {{#if canCheckAvailability}}
+    <a>http://{{model.href}}</a>
+    {{else}}
+    Choose a domain and path
+    {{/if}}
+  </div>
+  <div class="col-md-6">
+    {{#if canCheckAvailability}}
     {{#if checkingAvailability}}
-      Checking...
+    Checking...
     {{/if}}
     {{#if isAvailable}}
-      Token is available
+    {{#if isDefaultDomain}}
+    <input {{bind-attr disabled=isntAvailable}} type="submit" class="btn btn-primary" value="Claim">
+    {{else}}
+    <input {{bind-attr disabled=isntAvailable}} type="submit" class="btn btn-primary" value="Setup">
+    {{/if}}
     {{/if}}
     {{#if isTaken}}
-      Token is already taken
+    Token is already taken
     {{/if}}
     {{#if isTakenByUser}}
-      You already own {{#link-to 'token' model}}this token{{/link-to}}
+    {{#link-to 'token' model}}<input type="submit" class="btn btn-primary" value="Edit">{{/link-to}}
     {{/if}}
-  {{else}}
-    Choose a domain and path
-  {{/if}}
-
-  <div class="form-actions">
-    <input {{bind-attr disabled=isntAvailable}} type="submit" class="btn btn-primary">
+    {{/if}}
   </div>
+</div>
 {{/em-form}}

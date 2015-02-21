@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
   domainType: 'default',
 
   isDefaultDomain: Ember.computed.equal('domainType', 'default'),
+  isNewDomain: Ember.computed.equal('domainType', 'new'),
   isUserDomain: Ember.computed.equal('domainType', 'user'),
 
   domainOptions: function() {
@@ -30,9 +31,10 @@ export default Ember.Controller.extend({
 
   updateAvailablity: function() {
     if(this.get('canCheckAvailability')) {
+      this.set('availability', undefined);
       var that = this;
       var availableUrl = '__/proxy/api/tokens/' + this.get('model.id') + '/available';
-      jQuery.get(availableUrl, function(data) {
+      Ember.$.get(availableUrl, function(data) {
         var availability = data.available || (data.user_owns ? 'user_owns' : false);
         that.set('availability', availability);
       });

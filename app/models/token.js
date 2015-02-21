@@ -31,6 +31,10 @@ export default DS.Model.extend({
 
   hasPath: Ember.computed.notEmpty('path'),
 
+  href: function() {
+    return '//' + this.get('domain') + '/' + this.get('path');
+  }.property('id'),
+
   translations: DS.hasManyFragments('translation', {defaultValue: []}),
 
   activeTranslations: Ember.computed.filterBy('translations', 'rule.active', true),
