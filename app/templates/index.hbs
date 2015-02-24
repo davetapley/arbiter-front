@@ -1,3 +1,8 @@
+{{#if session.isAuthenticated}}
+{{#link-to 'tokens'}}
+Edit tokens
+{{/link-to}}
+{{else}}
 <p>
 We're invite only right now.
 </p>
@@ -7,3 +12,4 @@ Login here
 {{/link-to}}
 or
 <a href="mailto:dave@velocitylabs.io">contact us</a>
+{{/if}}
