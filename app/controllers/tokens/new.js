@@ -21,7 +21,15 @@ export default Ember.Controller.extend({
 
   availability: undefined,
   checkingAvailability: Ember.computed.equal('availability', undefined),
-  canCheckAvailability: Ember.computed.and('model.hasDomain', 'model.hasPath'),
+
+  canCheckAvailability: function() {
+    var domainType = this.get('domainType');
+    if(domainType === 'default') {
+      return this.get('model.hasDomain') && this.get('model.hasPath');
+    } else {
+      return this.get('model.hasDomain');
+    }
+  }.property('domainType', 'model.hasDomain', 'model.hasPath'),
 
   isAvailable: Ember.computed.equal('availability', true),
   isntAvailable: Ember.computed.not('isAvailable'),
