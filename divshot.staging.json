@@ -9,7 +9,7 @@
 
   "proxy": {
     "api": {
-      "origin":"http://arbiter-back-staging.herokuapp.com/",
+      "origin":"https://arbiter-back-staging.herokuapp.com/",
       "headers": {
         "Accept": "application/json"
       },
