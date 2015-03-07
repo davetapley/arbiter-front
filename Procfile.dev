@@ -1,0 +1,2 @@
+web: superstatic --services=proxy -p 4200 -c divshot.json
+build: ember build --watch
